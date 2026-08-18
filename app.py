@@ -141,7 +141,7 @@ def render_certificate_html(template_path: Path, participant_name: str, assets_d
     """Inject participant name into the certificate HTML template and expose asset URLs as file:// paths."""
     template_content = template_path.read_text(encoding="utf-8")
     template = Template(template_content)
-    rendered = template.render(PARTICIPANT_NAME=participant_name)
+    rendered = template.render(PARTICIPANT_NAME=participant_name, NAME=participant_name)
 
     asset_root = assets_dir.resolve().as_posix()
     rendered = rendered.replace('src="assets/', f'src="file://{asset_root}/')
@@ -226,7 +226,7 @@ def send_email_with_attachment(
 
 
 def ensure_required_files(template_path: Path, assets_dir: Path) -> None:
-    """Validate required template and image assets before processing."""
+    """Validate the certificate template and warn about optional image assets."""
     if not template_path.exists():
         raise FileNotFoundError(f"Certificate template not found: {template_path}")
 
@@ -240,8 +240,9 @@ def ensure_required_files(template_path: Path, assets_dir: Path) -> None:
     ]
     missing = [name for name in required_assets if not (assets_dir / name).exists()]
     if missing:
-        raise FileNotFoundError(
-            f"Missing asset files in {assets_dir}: {', '.join(missing)}"
+        log_warning(
+            f"Optional image assets are missing in {assets_dir}: {', '.join(missing)}. "
+            "Continuing without them; the event certificate can still render successfully."
         )
 
 
