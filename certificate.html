@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificate of Participation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 297mm;
+      height: 210mm;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f7f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .certificate-container {
+      width: 280mm;
+      height: 193mm;
+      background: #ffffff;
+      border: 8px solid #00838f;
+      position: relative;
+      box-sizing: border-box;
+      padding: 30px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* Decorative corner accents */
+    .corner-teal {
+      position: absolute;
+      width: 0; height: 0;
+      border-style: solid;
+    }
+    .top-left { top: 0; left: 0; border-width: 70px 70px 0 0; border-color: #00838f transparent transparent transparent; }
+    .bottom-right { bottom: 0; right: 0; border-width: 0 0 70px 70px; border-color: transparent transparent #00838f transparent; }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .logo-box img {
+      max-height: 65px;
+    }
+
+    .main-title {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .main-title h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 38px;
+      letter-spacing: 4px;
+      color: #00838f;
+      margin: 0;
+    }
+
+    .main-title h3 {
+      font-size: 16px;
+      letter-spacing: 2px;
+      color: #555;
+      font-weight: 600;
+      margin: 5px 0 0 0;
+      text-transform: uppercase;
+    }
+
+    .content {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .sub-text {
+      font-size: 14px;
+      color: #666;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .participant-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: #004d40;
+      margin: 12px 0;
+      border-bottom: 2px solid #00838f;
+      display: inline-block;
+      padding: 0 25px 5px 25px;
+    }
+
+    .event-details {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .signatures {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+
+    .sig-block {
+      text-align: center;
+      width: 180px;
+    }
+
+    .sig-line {
+      border-top: 1.5px solid #777;
+      margin-top: 40px;
+      margin-bottom: 6px;
+    }
+
+    .sig-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .sig-title {
+      font-size: 11px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="certificate-container">
+    <div class="corner-teal top-left"></div>
+    <div class="corner-teal bottom-right"></div>
+
+    <!-- Header Logos -->
+    <div class="header">
+      <div class="logo-box">
+        <strong>CMR Technical Campus</strong>
+      </div>
+      <div class="logo-box">
+        <strong>DATAZOIDS (CSE-DS)</strong>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <div class="main-title">
+      <h1>CERTIFICATE</h1>
+      <h3>OF PARTICIPATION</h3>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+      <div class="sub-text">This certificate is proudly presented to</div>
+      <div class="participant-name">{{NAME}}</div>
+      <div class="event-details">
+        for active participation in the <strong>3-Day Data Science Ideathon</strong> organized by the Department of 
+        <strong>CSE - Data Science (DATAZOIDS)</strong> at CMR Technical Campus, Hyderabad.
+      </div>
+    </div>
+
+    <!-- Signatures Section -->
+    <div class="signatures">
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Faculty Coordinator</div>
+        <div class="sig-title">DATAZOIDS</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Dr. K. Murali</div>
+        <div class="sig-title">HOD CSE - DS</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Dr. A. Raji Reddy</div>
+        <div class="sig-title">Director, CMRTC</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
