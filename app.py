@@ -113,6 +113,7 @@ def load_participants(csv_path: Path) -> list[dict]:
     for index, row in dataframe.iterrows():
         name = str(row.get("Name", "")).strip()
         email = str(row.get("Email", "")).strip()
+        certificate_id = str(row.get("Certificate_ID", "")).strip()
 
         if not name or not email:
             invalid_rows += 1
@@ -128,7 +129,9 @@ def load_participants(csv_path: Path) -> list[dict]:
             )
             continue
 
-        valid_rows.append({"Name": name, "Email": email})
+        valid_rows.append(
+            {"Name": name, "Email": email, "Certificate_ID": certificate_id}
+        )
 
     log_info(f"Loaded {len(valid_rows)} valid participant records from {csv_path.name}.")
     if invalid_rows:
@@ -201,7 +204,7 @@ CMR Technical Campus (CMRTC)
     attachment.add_header(
         "Content-Disposition",
         'attachment',
-        filename=f"Certificate_{sanitize_filename(participant_name)}.pdf",
+        filename=pdf_path.name,
     )
     message.attach(attachment)
     return message
@@ -231,12 +234,13 @@ def ensure_required_files(template_path: Path, assets_dir: Path) -> None:
         raise FileNotFoundError(f"Certificate template not found: {template_path}")
 
     required_assets = [
-        "cmrtc_logo.png",
+        "cmrtc_logo.png.jpeg",
         "iic_logo.png",
-        "datazoids_badge.png",
-        "sig_coordinator.png",
-        "sig_hod.png",
-        "sig_director.png",
+        "ds_dept_logo.png.jpeg",
+        "datazoids_logo.png.jpeg",
+        "sig_coordinator.png.jpeg",
+        "sig_hod.png.jpeg",
+        "sig_director.png.jpeg",
     ]
     missing = [name for name in required_assets if not (assets_dir / name).exists()]
     if missing:
@@ -277,7 +281,9 @@ def main() -> int:
             participant_name = participant["Name"]
             recipient_email = participant["Email"]
             sanitized_name = sanitize_filename(participant_name)
-            output_pdf = args.output_dir / f"Certificate_{sanitized_name}.pdf"
+            certificate_id = sanitize_filename(participant.get("Certificate_ID", ""))
+            filename_suffix = f"_{certificate_id}" if certificate_id else ""
+            output_pdf = args.output_dir / f"Certificate_{sanitized_name}{filename_suffix}.pdf"
 
             try:
                 rendered_html = render_certificate_html(args.template, participant_name, args.assets_dir)
