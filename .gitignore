@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.tmp
+*.html.tmp
+output_pdfs/*.pdf
+output_pdfs/*.csv
