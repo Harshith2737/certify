@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Certificate of Participation</title>
+  <title>Certificate of Participation - DATAZOIDS Ideathon</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+    /* Imported Professional Fonts: 
+       Cinzel (Prestigious Headers), Playfair Display (Elegant Names), Montserrat (Clean Body Text) */
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,700&display=swap');
 
     @page {
       size: A4 landscape;
       margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -17,178 +23,334 @@
       width: 297mm;
       height: 210mm;
       font-family: 'Montserrat', sans-serif;
-      background-color: #f4f7f6;
+      background-color: #e9ecef; /* Darker background for screen to make certificate pop */
       display: flex;
       justify-content: center;
       align-items: center;
       -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
-    .certificate-container {
-      width: 280mm;
-      height: 193mm;
+    /* Outer Frame - Thick Teal Border */
+    .certificate-frame {
+      width: 285mm;
+      height: 198mm;
       background: #ffffff;
-      border: 8px solid #00838f;
+      border: 12px solid #004d40; /* Deep Teal */
+      padding: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Screen-only shadow for presentation */
       position: relative;
-      box-sizing: border-box;
-      padding: 30px 40px;
+    }
+
+    /* Inner Frame - Elegant Gold Border */
+    .certificate-inner {
+      width: 100%;
+      height: 100%;
+      border: 2px solid #d4af37; /* Metallic Gold */
+      background: radial-gradient(circle, #ffffff 40%, #fdfbf7 100%); /* Subtle parchment glow */
+      position: relative;
+      padding: 35px 50px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
+      z-index: 1;
     }
 
-    /* Decorative corner accents */
-    .corner-teal {
+    /* Watermark Effect */
+    .watermark {
       position: absolute;
-      width: 0; height: 0;
-      border-style: solid;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background-image: url('assets/datazoids_logo.png'); /* Add your logo here */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.04; /* Extremely faint */
+      z-index: -1;
     }
-    .top-left { top: 0; left: 0; border-width: 70px 70px 0 0; border-color: #00838f transparent transparent transparent; }
-    .bottom-right { bottom: 0; right: 0; border-width: 0 0 70px 70px; border-color: transparent transparent #00838f transparent; }
 
+    /* Decorative Gold Corners */
+    .corner {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 3px solid #d4af37;
+    }
+    .corner-tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+    .corner-tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+    .corner-bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+    .corner-br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+    /* Header Logos */
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 2;
     }
 
-    .logo-box img {
-      max-height: 65px;
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
-    .main-title {
+    .logo-container {
+      height: 75px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      max-height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Certificate Title Area */
+    .title-section {
       text-align: center;
-      margin-top: 10px;
+      margin-top: -10px;
     }
 
-    .main-title h1 {
+    .title-section h1 {
       font-family: 'Cinzel', serif;
-      font-size: 38px;
-      letter-spacing: 4px;
-      color: #00838f;
+      font-size: 48px;
+      letter-spacing: 8px;
+      color: #004d40;
       margin: 0;
+      font-weight: 800;
+      text-transform: uppercase;
     }
 
-    .main-title h3 {
+    .title-section h3 {
+      font-family: 'Montserrat', sans-serif;
       font-size: 16px;
-      letter-spacing: 2px;
-      color: #555;
+      letter-spacing: 6px;
+      color: #d4af37;
       font-weight: 600;
-      margin: 5px 0 0 0;
+      margin: 10px 0 0 0;
       text-transform: uppercase;
     }
 
-    .content {
+    /* Ornate Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0 25px 0;
+    }
+    .divider .line { width: 150px; height: 1.5px; background: #d4af37; }
+    .divider .diamond { width: 10px; height: 10px; background: #004d40; transform: rotate(45deg); margin: 0 15px; }
+
+    /* Main Content Body */
+    .content-section {
       text-align: center;
-      margin: 15px 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .sub-text {
+    .award-text {
       font-size: 14px;
-      color: #666;
-      letter-spacing: 1px;
+      color: #555555;
+      letter-spacing: 2px;
       text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    /* Participant Name Styling */
+    .participant-name-container {
+      margin: 0 auto 25px auto;
+      width: 70%;
+      position: relative;
     }
 
     .participant-name {
-      font-size: 32px;
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
       font-weight: 700;
-      color: #004d40;
-      margin: 12px 0;
-      border-bottom: 2px solid #00838f;
-      display: inline-block;
-      padding: 0 25px 5px 25px;
+      font-style: italic;
+      color: #000000;
+      padding-bottom: 5px;
     }
 
-    .event-details {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #333;
-      max-width: 800px;
+    /* Fading Underline for Name */
+    .name-underline {
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent 0%, #d4af37 20%, #d4af37 80%, transparent 100%);
       margin: 0 auto;
     }
 
-    .signatures {
+    .event-description {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333333;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    
+    .event-description strong {
+      color: #004d40;
+      font-weight: 600;
+    }
+
+    /* Footer Signatures */
+    .signatures-section {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: flex-end;
-      margin-top: 20px;
-      padding: 0 20px;
+      padding: 0 20px 10px 20px;
     }
 
-    .sig-block {
+    .sig-box {
       text-align: center;
-      width: 180px;
+      width: 220px;
     }
 
+    .sig-image-container {
+      height: 55px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .sig-image-container img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* Signature Line */
     .sig-line {
-      border-top: 1.5px solid #777;
-      margin-top: 40px;
-      margin-bottom: 6px;
+      height: 1px;
+      background: #777777;
+      margin-bottom: 8px;
+      width: 100%;
     }
 
     .sig-name {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
-      color: #222;
+      color: #004d40;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .sig-title {
-      font-size: 11px;
-      color: #666;
+      font-size: 12px;
+      color: #666666;
+      margin-top: 2px;
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
 
-  <div class="certificate-container">
-    <div class="corner-teal top-left"></div>
-    <div class="corner-teal bottom-right"></div>
+  <div class="certificate-frame">
+    <div class="certificate-inner">
+      
+      <!-- Faint Background Watermark -->
+      <div class="watermark"></div>
 
-    <!-- Header Logos -->
-    <div class="header">
-      <div class="logo-box">
-        <strong>CMR Technical Campus</strong>
-      </div>
-      <div class="logo-box">
-        <strong>DATAZOIDS (CSE-DS)</strong>
-      </div>
-    </div>
+      <!-- Decorative Gold Corners -->
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
 
-    <!-- Title -->
-    <div class="main-title">
-      <h1>CERTIFICATE</h1>
-      <h3>OF PARTICIPATION</h3>
-    </div>
+      <!-- Header Logos -->
+      <div class="header">
+        <!-- Top Left Group: CMRTC & IIC -->
+        <div class="logo-group">
+          <div class="logo-container">
+            <img src="assets/cmrtc_logo.png" alt="CMRTC Logo">
+          </div>
+          <div class="logo-container">
+            <img src="assets/iic_logo.png" alt="IIC Logo">
+          </div>
+        </div>
 
-    <!-- Content Area -->
-    <div class="content">
-      <div class="sub-text">This certificate is proudly presented to</div>
-      <div class="participant-name">{{NAME}}</div>
-      <div class="event-details">
-        for active participation in the <strong>3-Day Data Science Ideathon</strong> organized by the Department of 
-        <strong>CSE - Data Science (DATAZOIDS)</strong> at CMR Technical Campus, Hyderabad.
+        <!-- Top Right Group: Data Science Department & DATAZOIDS Club -->
+        <div class="logo-group">
+          <div class="logo-container">
+            <img src="assets/ds_dept_logo.png" alt="Data Science Dept Logo">
+          </div>
+          <div class="logo-container">
+            <img src="assets/datazoids_logo.png" alt="DATAZOIDS Club Logo">
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Signatures Section -->
-    <div class="signatures">
-      <div class="sig-block">
-        <div class="sig-line"></div>
-        <div class="sig-name">Faculty Coordinator</div>
-        <div class="sig-title">DATAZOIDS</div>
+      <!-- Title Header -->
+      <div class="title-section">
+        <h1>Certificate</h1>
+        <h3>Of Participation</h3>
+        
+        <!-- Elegant Divider -->
+        <div class="divider">
+          <div class="line"></div>
+          <div class="diamond"></div>
+          <div class="line"></div>
+        </div>
       </div>
-      <div class="sig-block">
-        <div class="sig-line"></div>
-        <div class="sig-name">Dr. K. Murali</div>
-        <div class="sig-title">HOD CSE - DS</div>
+
+      <!-- Main Content -->
+      <div class="content-section">
+        <div class="award-text">This is proudly presented to</div>
+        
+        <!-- Dynamic Name Field -->
+        <div class="participant-name-container">
+          <div class="participant-name">{{PARTICIPANT_NAME}}</div>
+          <div class="name-underline"></div>
+        </div>
+        
+        <div class="event-description">
+          For their exceptional effort and dedicated participation in the <strong>3-Day Ideathon</strong>. <br>
+          Organized by the <strong>CSE - Data Science Department (DATAZOIDS)</strong> in association with <strong>IIC 7.0</strong> <br>
+          at CMR Technical Campus (CMRTC).
+        </div>
       </div>
-      <div class="sig-block">
-        <div class="sig-line"></div>
-        <div class="sig-name">Dr. A. Raji Reddy</div>
-        <div class="sig-title">Director, CMRTC</div>
+
+      <!-- Bottom Signatures -->
+      <div class="signatures-section">
+        
+        <!-- Signature 1 -->
+        <div class="sig-box">
+          <div class="sig-image-container">
+            <img src="assets/sig_coordinator.png" alt="Signature Co-ordinator">
+          </div>
+          <div class="sig-line"></div>
+          <div class="sig-name">V. Prema Tulasi</div>
+          <div class="sig-title">IIC Co-Ordinator</div>
+        </div>
+
+        <!-- Signature 2 -->
+        <div class="sig-box">
+          <div class="sig-image-container">
+            <img src="assets/sig_hod.png" alt="Signature HOD">
+          </div>
+          <div class="sig-line"></div>
+          <div class="sig-name">Dr. K. Murali</div>
+          <div class="sig-title">HOD CSE - DS</div>
+        </div>
+
+        <!-- Signature 3 -->
+        <div class="sig-box">
+          <div class="sig-image-container">
+            <img src="assets/sig_director.png" alt="Signature Director">
+          </div>
+          <div class="sig-line"></div>
+          <div class="sig-name">Dr. A. Raji Reddy</div>
+          <div class="sig-title">Director, CMRTC</div>
+        </div>
+
       </div>
     </div>
   </div>
