@@ -41,6 +41,7 @@ def test_template_renders_participant_and_certificate_id():
     assert "Test Participant" in rendered
     assert "TEST-001" in rendered
     assert 'src="assets/cmrtc_logo.png.jpeg"' in rendered
+    assert 'src="assets/sig_coordinator.png"' in rendered
     assert "url('assets/datazoids_logo.png.jpeg')" in rendered
 
 

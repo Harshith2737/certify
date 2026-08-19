@@ -48,7 +48,7 @@ REQUIRED_ASSETS = (
     "iic_logo.png",
     "ds_dept_logo.png.jpeg",
     "datazoids_logo.png.jpeg",
-    "sig_coordinator.png.jpeg",
+    "sig_coordinator.png",
     "sig_hod.png.jpeg",
     "sig_director.png.jpeg",
 )
