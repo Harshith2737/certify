@@ -1,0 +1,73 @@
+TECHNOVANZA 6.0 – SIH 2026 EMAIL TEMPLATES
+============================================
+
+INDIVIDUAL TEAM MEMBER
+----------------------
+Subject:
+Certificate of Participation | TECHNOVANZA 6.0 – SIH 2026 | [TEAM NAME]
+
+Dear [PARTICIPANT NAME],
+
+Greetings from CMR Technical Campus!
+
+Congratulations on your participation in TECHNOVANZA 6.0, the Internal Hackathon conducted as part of the Smart India Hackathon (SIH) 2026 initiative at CMR Technical Campus on 12th September 2026.
+
+Team Details:
+Team Name: [TEAM NAME]
+Problem Statement ID: [PS ID]
+
+Your participation, teamwork, and contribution towards the development of an innovative solution are sincerely appreciated.
+
+Please find your individual Certificate of Participation attached with this email for your records.
+
+We appreciate your efforts and wish you continued success in your academic, technical, and innovation pursuits.
+
+Warm regards,
+
+Dr. A. Mahendar
+Program Convener, SPOC – Smart India Hackathon (SIH)
+Convener – Institution's Innovation Council (IIC)
+CMR Technical Campus
+Hyderabad
+
+
+TEAM LEADER
+-----------
+Subject:
+Team Certificates | TECHNOVANZA 6.0 – SIH 2026 | [TEAM NAME]
+
+Dear [TEAM LEADER NAME],
+
+Greetings from CMR Technical Campus!
+
+Congratulations on successfully participating in TECHNOVANZA 6.0, the Internal Hackathon conducted as part of the Smart India Hackathon (SIH) 2026 initiative at CMR Technical Campus on 12th September 2026.
+
+As the Team Leader of [TEAM NAME], we are pleased to share the team's certificates of participation.
+
+Team Details:
+Team Name: [TEAM NAME]
+Problem Statement ID: [PS ID]
+
+Team Members:
+1. [MEMBER 1]
+2. [MEMBER 2]
+3. [MEMBER 3]
+4. [MEMBER 4]
+5. [MEMBER 5]
+6. [MEMBER 6]
+
+Attached with this email is a ZIP folder containing the individual certificates of all members of your team. Your own individual certificate is also included in the ZIP file.
+
+Please retain the ZIP folder for your team's records and future reference.
+
+We sincerely appreciate your team's enthusiasm, collaboration, problem-solving efforts, and contribution to the innovation process.
+
+Wishing you and your team continued success in your future academic, technical, and innovation pursuits.
+
+Warm regards,
+
+Dr. A. Mahendar
+Program Convener, SPOC – Smart India Hackathon (SIH)
+Convener – Institution's Innovation Council (IIC)
+CMR Technical Campus
+Hyderabad
